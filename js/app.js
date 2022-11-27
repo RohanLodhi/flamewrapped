@@ -6,6 +6,7 @@ close.addEventListener('click', () => {
   console.log('x');
 
   buttonStatus.style.display = 'block';
+  stopConfetti();
 
   popup.classList.toggle('cards');
   popup.classList.toggle('show');
@@ -33,7 +34,22 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
+const start = () => {
+  setTimeout(function() {
+    startConfetti();
+  }, 1000);
+
+  setTimeout(function() {
+    stopConfetti();
+  }, 3000);
+}
+
 function showSlides(n) {
+
+  if(n==7){
+    start()
+  }
+
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
